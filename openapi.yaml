@@ -1,0 +1,102 @@
+openapi: 3.0.0
+info:
+  title: Google Spreadsheet API
+  description: API to server data from an specified google spreasheet
+  contact:
+    name: Álvaro Reis
+    url: https://github.com/reisneto
+    email: reisneto.alvaro@gmail.com
+  version: 1.0.0
+servers:
+  - url: https://virtserver.swaggerhub.com/reisneto/test_api/1.0.0
+    description: SwaggerHub API Auto Mocking
+
+paths:
+  /spreadsheets/{spreadsheetId}/{sheetId}:
+    get:
+      tags:
+        - Sheet Rows
+      description: get all data from sheet
+      parameters:
+        - name: sheetId
+          in: path
+          description: sheet id
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: integer
+            example: 0
+        - name: spreadsheetId
+          in: path
+          description: spreadsheet id
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: integer
+            example: 0
+        - name: from
+          in: query
+          description: first row to be collected
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: integer
+            default: 0
+        - name: to
+          in: query
+          description: last row to be collected
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: integer
+            default: 0
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rows'
+components:
+  schemas:
+    rows:
+      type: array
+      items:
+        $ref: '#/components/schemas/rows_inner'
+    rows_inner:
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 49
+        name:
+          type: string
+          example: José Bonifácio
+        age:
+          type: integer
+          example: 28
+  parameters:
+    spreadsheetIdParam:
+      name: spreadsheetId
+      in: path
+      description: spreadsheet id
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: integer
+        example: 0
+    sheetIdParam:
+      name: sheetId
+      in: path
+      description: sheet id
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: integer
+        example: 0

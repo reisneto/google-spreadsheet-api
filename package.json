@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "export:apidoc": "redoc-cli bundle ./openapi.yaml -o ./app/public/api-documentation.html"
+  },
+  "dependencies": {
+    "redoc-cli": "^0.9.8"
+  }
+}
