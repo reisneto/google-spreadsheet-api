@@ -1,3 +1,4 @@
 node_modules
 app/public/api-documentation.htm
 dist
+yarn-error.log

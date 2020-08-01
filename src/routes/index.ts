@@ -3,11 +3,11 @@ import { Router } from 'express';
 import about from './about';
 
 interface Routes {
-    [index: string]: Router
+  [index: string]: Router;
 }
 
 const routes: Routes = {
-    about,
+  about,
 };
 
 export default routes;
