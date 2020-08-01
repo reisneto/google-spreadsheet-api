@@ -7,6 +7,10 @@ build:
 compile:
 	docker-compose run --rm --no-deps app yarn compile
 
+.PHONY: lint
+lint:
+	docker-compose run --rm --no-deps app yarn lint
+
 .PHONY: start
 start:
 	docker-compose up -d

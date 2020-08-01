@@ -2,7 +2,8 @@
   "scripts": {
     "compile": "tsc -p .",
     "dev:start": "ts-node-dev --transpile-only --ignore-watch node_modules src/index.ts",
-    "export:apidoc": "redoc-cli bundle ./openapi.yaml -o ./app/public/api-documentation.html"
+    "export:apidoc": "redoc-cli bundle ./openapi.yaml -o ./app/public/api-documentation.html",
+    "lint": "eslint --max-warnings 0 . && echo 'Lint OK'"
   },
   "dependencies": {
     "cors": "^2.8.5",
