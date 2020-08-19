@@ -1,4 +1,6 @@
 import { Express } from 'express';
+import cors from 'cors';
+import pino from 'express-pino-logger';
 import Prometheus from 'prom-client';
 import promMid from 'express-prometheus-middleware';
 
@@ -10,5 +12,7 @@ const prometheusMiddleware = promMid({
 });
 
 export function applyMiddlewares(app: Express): void {
+  app.use(cors());
+  app.use(pino());
   app.use(prometheusMiddleware);
 }

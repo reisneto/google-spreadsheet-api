@@ -1,13 +1,15 @@
 import { Router } from 'express';
 
-import about from './about';
+import status from './status';
+import defaultRoute from './default';
 
 interface Routes {
   [index: string]: Router;
 }
 
 const routes: Routes = {
-  about,
+  status,
+  defaultRoute,
 };
 
 export default routes;
