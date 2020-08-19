@@ -38,7 +38,7 @@ workflows:
           path: .
           profile-name: CircleCI
           repo: gspreadsheet-api
-          tag: '0.0.2'
+          tag: "${CIRCLE_SHA1}"
           requires:
             - lint-test
           filters:
